@@ -8,7 +8,8 @@ class View {
       }
 
 	  $user = new User();
-	  include 'views/'.$folder.'/'.$file_name.'.php';
+	  
+      include 'views/' . $folder . '/' . $file_name .'.php';
    }
 }
 
