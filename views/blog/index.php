@@ -14,7 +14,7 @@
 		<p style="float: right;"><a href="<?php echo BASE_URL; ?>addpost/edit/<?php echo $p['pID']; ?>"><span style="text-decoration: underline">edit</span></a></p>
 	<?php } ?>
 	<h5><?php echo strval($p['last_name'].', '.$p['first_name']).' -- '. date('F d, Y',strtotime($p['date']));?></h5>
-	<p><?php echo $p['content'];?></p>
+	<div style="margin-top: 15px"><a href="<?php echo BASE_URL; ?>ajax/get_post_content/?pID=<?php echo $p['pID']; ?>" class="btn post-loader">View Entire Post</a></div>
 <?php }?>
 </div>
 
