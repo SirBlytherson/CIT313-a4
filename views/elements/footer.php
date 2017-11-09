@@ -31,7 +31,41 @@
 			
 
 		</script>
+		
 <?php } ?>
 
+		<script>
+			
+			$(document).ready(function() {
+				$('.post-loader').click(function(event) {
+					event.preventDefault();
+					var el = $(this);
+					
+					$.ajax({
+						url:el.attr('href'),
+						method:'GET',
+						success:function(data) {
+							el.parent().append(data);
+							el.remove();
+						},
+					});
+				});
+				$('.zip-submit').submit(function(event) {
+					console.log('prevent default');
+					event.preventDefault();
+					var el = $(this);
+					$.ajax({
+						url:'<?php echo BASE_URL; ?>ajax/get_weather/'.concat($('#zip').val()),
+						method:'POST',
+						success:function(data) {
+							$('#wx .page-header h1').text('Weather For '.concat($('#zip').val()));
+							$('#wo').remove();
+							el.parent().append(data);
+						},
+					});
+				});
+			});
+			
+		</script>
   </body>
 </html>
